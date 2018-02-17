@@ -4,7 +4,8 @@ namespace app;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\UsersPhone as Phone;
+use App\UsersAddress as Address;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +27,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function phone()
+    {
+        return $this->hasMany('App\UsersPhone','user_id','id');
+
+    }
+
+    public function address()
+    {
+        return $this->hasMany('App\UsersAddress','user_id','id');
+
+    }
 }
