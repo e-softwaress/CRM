@@ -15,8 +15,8 @@ class CreateUsersPhoneTable extends Migration
     {
         Schema::create('users_phone', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('DDI')->nullable()->default('+55');
-            $table->string('DDD');
+            $table->string('ddi')->nullable()->default('+55');
+            $table->string('ddd');
             $table->string('number');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
