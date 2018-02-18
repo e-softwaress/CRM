@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <img src="/image/Logo.png">
                 </div>
 
                 <div class="links">

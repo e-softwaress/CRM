@@ -3,6 +3,7 @@
 namespace app;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User as User;
 
 class UsersAddress extends Model
 {
