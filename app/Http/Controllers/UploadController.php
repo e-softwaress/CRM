@@ -3,10 +3,15 @@
 namespace app\Http\Controllers;
 
 use Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input as Input;
 
 class UploadController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 
     public function upload()
@@ -26,6 +31,7 @@ class UploadController extends Controller
 
 
             $file = Input::file('file');
+
 
             foreach ($file as $photos) {
                 $name = md5(rand(000, 999));
@@ -47,5 +53,33 @@ class UploadController extends Controller
         }
 
 
+    }
+
+    public function imagesUploadPost(Request $request)
+
+    {
+
+        request()->validate([
+
+            'uploadFile' => 'required',
+
+        ]);
+
+
+        foreach ($request->file('uploadFile') as $key => $value) {
+
+            $imageName = time() . $key . '.' . $value->getClientOriginalExtension();
+
+            $value->move(public_path('images'), $imageName);
+
+        }
+
+
+        return response()->json(['success' => 'Images Uploaded Successfully.']);
+
+    }
+    public  function  imagesUpload(){
+
+        return view('upload.upload');
     }
 }

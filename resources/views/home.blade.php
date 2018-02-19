@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header">Dashboard</div>
 
@@ -30,7 +30,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <script>
 
 
@@ -69,7 +68,7 @@
                     success: function (data) {
                         $('#res').html(data);
 
-                        swal("Registrado!", "Salvo com sucesso.", "success");
+                        swal("Salvo!",'', "success");
 
 
                         $(form).each(function () {
